@@ -1224,6 +1224,14 @@ class MapboxMapController extends ChangeNotifier {
     return _mapboxGlPlatform.addLayer(layerId, imageSourceId, minzoom, maxzoom);
   }
 
+  Future<void> setTerrain(
+    String source, {
+    double exaggeration = 1.0,
+  }) {
+    _disposeGuard();
+    return _mapboxGlPlatform.setTerrain(source, exaggeration: exaggeration);
+  }
+
   /// Adds a Mapbox image layer below the layer provided with belowLayerId to the map's style at render time.
   Future<void> addImageLayerBelow(
       String layerId, String sourceId, String imageSourceId,
