@@ -182,6 +182,8 @@ abstract class MapboxGlPlatform {
 
   Future<void> addSource(String sourceId, SourceProperties properties);
 
+  Future<void> setTerrain(String sourceId, {double exaggeration = 1.0});
+
   Future<String> takeSnapshot(SnapshotOptions snapshotOptions);
 
   @mustCallSuper

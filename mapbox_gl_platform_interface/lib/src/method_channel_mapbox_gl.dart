@@ -269,6 +269,15 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
     });
   }
 
+    @override
+  Future<void> setTerrain(String source, {double exaggeration = 1.0}) async {
+    await _channel.invokeMethod('map#setTerrain', <String, dynamic>{
+      'source': source,
+      'exaggeration': exaggeration
+    });
+  }
+
+
   @override
   Future<bool> getTelemetryEnabled() async {
     return await _channel.invokeMethod('map#getTelemetryEnabled');

@@ -1010,6 +1010,12 @@ class MapboxWebGlPlatform extends MapboxGlPlatform
   }
 
   @override
+  Future<void> setTerrain(String sourceId, {double exaggeration = 1.0}) {
+    _map.setTerrain({'source': sourceId, 'exaggeration':exaggeration});
+    throw UnimplementedError();
+  }
+
+  @override
   Future<void> addLayerBelow(String imageLayerId, String imageSourceId,
       String belowLayerId, double? minzoom, double? maxzoom) {
     // TODO: implement addLayerBelow
