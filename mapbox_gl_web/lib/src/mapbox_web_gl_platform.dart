@@ -1010,7 +1010,7 @@ class MapboxWebGlPlatform extends MapboxGlPlatform
   }
 
   @override
-  Future<void> setTerrain(String sourceId, {double exaggeration = 1.0}) {
+  Future<void> setTerrain(String sourceId, {double exaggeration = 1.0}) async {
     _map.setTerrain({'source': sourceId, 'exaggeration':exaggeration});
   }
 
