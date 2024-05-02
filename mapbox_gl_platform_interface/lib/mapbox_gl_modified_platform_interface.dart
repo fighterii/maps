@@ -1,4 +1,4 @@
-library mapbox_gl_modified_platform_interface;
+library mapbox_gl_platform_interface;
 
 import 'dart:async';
 import 'dart:convert';

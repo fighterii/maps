@@ -1,4 +1,4 @@
-part of mapbox_gl_modified_web;
+part of mapbox_gl_web;
 
 const _mapboxGlCssUrl =
     'https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css';

@@ -1,4 +1,4 @@
-part of mapbox_gl_modified_web;
+part of mapbox_gl_web;
 
 class Convert {
   static void interpretMapboxMapOptions(

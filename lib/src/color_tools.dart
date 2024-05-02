@@ -1,4 +1,4 @@
-part of mapbox_gl_modified;
+part of mapbox_gl;
 
 extension MapBoxColorConversion on Color {
   String toHexStringRGB() {

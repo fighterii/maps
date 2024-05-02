@@ -1,4 +1,4 @@
-part of mapbox_gl_modified;
+part of mapbox_gl;
 
 Map<String, dynamic> buildFeatureCollection(
     List<Map<String, dynamic>> features) {
