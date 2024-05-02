@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-part of mapbox_gl;
+part of mapbox_gl_modified;
 
 typedef void OnMapClickCallback(Point<double> point, LatLng coordinates);
 
 typedef void OnFeatureInteractionCallback(
-    dynamic id, Point<double> point, LatLng coordinates);
+    dynamic id, dynamic feature, Point<double> point, LatLng coordinates);
 
 typedef void OnFeatureDragnCallback(dynamic id,
     {required Point<double> point,
@@ -67,7 +67,7 @@ class MapboxMapController extends ChangeNotifier {
     _mapboxGlPlatform.onFeatureTappedPlatform.add((payload) {
       for (final fun
           in List<OnFeatureInteractionCallback>.from(onFeatureTapped)) {
-        fun(payload["id"], payload["point"], payload["latLng"]);
+        fun(payload["id"], payload["feature"], payload["point"], payload["latLng"]);
       }
     });
 
@@ -1409,6 +1409,13 @@ class MapboxMapController extends ChangeNotifier {
   Future<String> takeSnapshot(SnapshotOptions snapshotOptions) async {
     _disposeGuard();
     return _mapboxGlPlatform.takeSnapshot(snapshotOptions);
+  }
+
+  /// Change the layer style without recreating the mapbox map
+  /// You can pass style uri or json style on it
+  /// [style] - It may be the style uri or json style string
+  Future<void> setStyle(String style) async {
+    return _mapboxGlPlatform.setStyle(style);
   }
 
   @override

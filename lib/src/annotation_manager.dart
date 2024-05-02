@@ -1,4 +1,4 @@
-part of mapbox_gl;
+part of mapbox_gl_modified;
 
 abstract class AnnotationManager<T extends Annotation> {
   final MapboxMapController controller;
@@ -62,7 +62,7 @@ abstract class AnnotationManager<T extends Annotation> {
     }
   }
 
-  _onFeatureTapped(dynamic id, Point<double> point, LatLng coordinates) {
+  _onFeatureTapped(dynamic id, dynamic feature, Point<double> point, LatLng coordinates) {
     final annotation = _idToAnnotation[id];
     if (annotation != null) {
       onTap!(annotation);

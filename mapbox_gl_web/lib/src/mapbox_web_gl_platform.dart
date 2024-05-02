@@ -1,4 +1,4 @@
-part of mapbox_gl_web;
+part of mapbox_gl_modified_web;
 
 const _mapboxGlCssUrl =
     'https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css';
@@ -396,7 +396,8 @@ class MapboxWebGlPlatform extends MapboxGlPlatform
     final payload = {
       'point': Point<double>(e.point.x.toDouble(), e.point.y.toDouble()),
       'latLng': LatLng(e.lngLat.lat.toDouble(), e.lngLat.lng.toDouble()),
-      if (features.isNotEmpty) "id": features.first.id,
+      if (features.isNotEmpty) 'id': features.first.id,
+      if (features.isNotEmpty) 'feature': jsonEncode(features.first),
     };
     if (features.isNotEmpty) {
       onFeatureTappedPlatform(payload);
@@ -1073,5 +1074,10 @@ class MapboxWebGlPlatform extends MapboxGlPlatform
   @override
   void forceResizeWebMap() {
     _map.resize();
+  }
+
+  @override
+  Future<void> setStyle(String style) async {
+    _map.setStyle(style);
   }
 }

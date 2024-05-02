@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_getters_setters
 
-part of mapbox_gl_platform_interface;
+part of mapbox_gl_modified_platform_interface;
 
 typedef OnPlatformViewCreatedCallback = void Function(int);
 
@@ -185,6 +185,8 @@ abstract class MapboxGlPlatform {
   Future<void> setTerrain(String sourceId, {double exaggeration = 1.0});
 
   Future<String> takeSnapshot(SnapshotOptions snapshotOptions);
+
+  Future<void> setStyle(String style);
 
   @mustCallSuper
   void dispose() {

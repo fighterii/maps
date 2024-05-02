@@ -1,14 +1,14 @@
-name: mapbox_gl_web
+name: mapbox_gl_modified_web
 description: Web platform implementation of mapbox_gl
 version: 0.16.0
-homepage: https://github.com/tobrun/flutter-mapbox-gl
+homepage: https://github.com/ithebest/mapbox_gl_modified
 
 flutter:
   plugin:
     platforms:
       web:
         pluginClass: MapboxMapPlugin
-        fileName: mapbox_gl_web.dart
+        fileName: mapbox_gl_modified_web.dart
 
 dependencies:
   flutter:
@@ -16,6 +16,7 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   meta: ^1.1.7
+<<<<<<< HEAD:mapbox_gl_web/pubspec.yaml
   mapbox_gl_platform_interface:
     git:
       url: https://github.com/fighterii/maps.git
@@ -26,10 +27,11 @@ dependencies:
       url: https://github.com/fighterii/mapbox-gl-dart.git
       ref: terrain
   image: '>=3.0.0 <5.0.0'
-
-dependency_overrides:
-  mapbox_gl_platform_interface:
-    path: ../mapbox_gl_platform_interface
+=======
+  mapbox_gl_modified_platform_interface: ^0.16.0
+  mapbox_gl_dart: ^0.2.1
+  image: ^3.0.0
+>>>>>>> modified-repo/master:mapbox_gl_modified_web/pubspec.yaml
 
 dev_dependencies:
   flutter_test:
