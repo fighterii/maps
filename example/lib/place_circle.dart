@@ -6,7 +6,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
+import 'package:mapbox_gl_modified/mapbox_gl_modified.dart';
 
 import 'main.dart';
 import 'page.dart';

@@ -1,4 +1,4 @@
-part of mapbox_gl_platform_interface;
+part of mapbox_gl_modified_platform_interface;
 
 class MethodChannelMapboxGl extends MapboxGlPlatform {
   late MethodChannel _channel;
@@ -14,6 +14,8 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
         break;
 
       case 'feature#onTap':
+        final featureStr = call.arguments['feature'];
+        final feature = jsonDecode(featureStr);
         final id = call.arguments['id'];
         final double x = call.arguments['x'];
         final double y = call.arguments['y'];
@@ -21,6 +23,7 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
         final double lat = call.arguments['lat'];
         onFeatureTappedPlatform({
           'id': id,
+          'feature': feature,
           'point': Point<double>(x, y),
           'latLng': LatLng(lat, lng)
         });
@@ -777,6 +780,16 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
       var uri = await _channel.invokeMethod(
           'snapshot#takeSnapshot', snapshotOptions.toJson());
       return uri;
+    } on PlatformException catch (e) {
+      return new Future.error(e);
+    }
+  }
+
+  @override
+  Future<void> setStyle(String style) async {
+    try {
+      debugPrint("$style");
+      _channel.invokeMethod('style#setStyle', style);
     } on PlatformException catch (e) {
       return new Future.error(e);
     }

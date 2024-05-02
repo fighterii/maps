@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
+import 'package:mapbox_gl_modified/mapbox_gl_modified.dart';
 import 'package:mapbox_gl_example/main.dart';
 import 'package:mapbox_gl_example/page.dart';
 
@@ -52,7 +52,7 @@ class LayerState extends State {
     controller.onFeatureTapped.add(onFeatureTap);
   }
 
-  void onFeatureTap(dynamic featureId, Point<double> point, LatLng latLng) {
+  void onFeatureTap(dynamic featureId, dynamic feature, Point<double> point, LatLng latLng) {
     final snackBar = SnackBar(
       content: Text(
         'Tapped feature with id $featureId',
